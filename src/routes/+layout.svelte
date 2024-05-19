@@ -21,7 +21,7 @@ import Navbar from '../component/Navbar.svelte';
       margin-bottom : 0px;
       font-family: "Helvetica Neue", sans-serif;
       color: #333;
-      max-width: 768px;
+      /* max-width: 768px; */
     }
 
   </style>

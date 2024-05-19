@@ -1,0 +1,22 @@
+[
+    {
+    "year": 0,
+    "matiere" : "math",
+    "mainSubject": "limites_de_fractions",
+    "student": 1,
+    "week" : 1,
+    "subjects": ["analyse", "limites", "probabilités"],
+    "name" : "Limites de fractions",
+    "description" : "Apprendre à calculer les limites de fractions en l'infini"
+    },
+    {
+    "year": 0,
+    "matiere" : "math",
+    "mainSubject": "exponentielle",
+    "student": 1,
+    "week" : 2,
+    "subjects": ["analyse", "limites de l'exponentielle", "exponentielle", "équations trigonométriques", "loi binomiale", "logarithme", "dénombrement", "probabilités"],
+    "name" : "Exponentielle",
+    "description" : "Apprendre à calculer les limites de l'exponentielle"
+    }
+]

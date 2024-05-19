@@ -3,9 +3,9 @@
 </script>
   
   <nav>
-    <button on:click={() => goto('/')}>Home</button>
-    <button on:click={() => goto('/courses')}>Courses</button>
-    <a href="https://www.apprentus.com" target="_blank" rel="noopener noreferrer">Apprentus Profile</a>
+    <button on:click={() => goto("/")} class="logo">agepascompris</button>
+    <button on:click={() => goto('/cours')}>Cours</button>
+    <a href="https://www.apprentus.ch/cours-particuliers/en-ligne/soutien-scolaire/maths/mathematique-physique-secondaire-gymnase" target="_blank" rel="noopener noreferrer">Réserver un cours</a>
   </nav>
   
   <style>
@@ -14,7 +14,7 @@
       align-items: center;
       gap: 10px;
       padding: 5px;
-      background-color: var(--color-1);
+      background-color: white;
       box-sizing: border-box;
       border-radius: 0px 0px 10px 10px;  
       width : 100%;  
@@ -22,13 +22,13 @@
       top : 0;
       height: 7vh;
       overflow: hidden;
+      z-index: 100;
     }
   
     button {
       cursor: pointer;
       background-color: transparent;
       border : none;
-      /* box-shadow: 1px 1px 10px var(--color-3); */
       border-radius: 100px;
       padding : 10px 20px;
       box-sizing: border-box;
@@ -43,5 +43,16 @@
       background-color: transparent;
       border-radius: 100px;
       font-size: 1em;
+    }
+    @font-face {
+    font-family: 'isocpeur';
+    src: url('/font/ISOCPEUR.ttf') format('truetype');
+  }
+
+    .logo {
+      font-size: 2em;
+      font-family: 'isocpeur', fallback;
+      color: var(--color-1);
+      font-weight: bold;
     }
   </style>
