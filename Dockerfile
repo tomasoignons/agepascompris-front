@@ -1,23 +1,27 @@
-# Use a Node.js image to build your application
-FROM node:16-alpine
+FROM node:20.4.0-alpine
+WORKDIR /usr/src/app
 
-# Set the working directory
-WORKDIR /app
+ARG TZ=Europe/Stockholm
+ARG PUBLIC_HELLO
 
-# Copy package files
-COPY package*.json ./
-
-# Install the application dependencies
-RUN npm ci
-
-# Copy the application code
-COPY . .
-
-# Build the application
+COPY . /usr/src/app
+RUN apk --no-cache add curl tzdata
+RUN cp /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+RUN npm install
 RUN npm run build
 
-# Expose the port your app runs on
-EXPOSE 3000
+FROM node:19.7-alpine
+WORKDIR /usr/src/app
 
-# Start the application
-CMD ["npm", "start"]
+ARG TZ=Europe/Stockholm
+RUN apk --no-cache add curl tzdata
+RUN cp /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+COPY --from=sk-build /usr/src/app/package.json /usr/src/app/package.json
+COPY --from=sk-build /usr/src/app/package-lock.json /usr/src/app/package-lock.json
+RUN npm i --only=production
+
+COPY --from=sk-build /usr/src/app/build /usr/src/app/build
+
+EXPOSE 3000
+CMD ["node", "build/index.js"]
