@@ -1,22 +1,23 @@
 # Use a Node.js image to build your application
-FROM node:20.4.0-alpine
+FROM node:16-alpine
 
 # Set the working directory
 WORKDIR /app
 
-COPY package.json /app
-COPY package-lock.json /app
+# Copy package files
+COPY package*.json ./
 
 # Install the application dependencies
-RUN npm install
+RUN npm ci --only=production
 
 # Copy the application code
-COPY . /app
+COPY . .
 
+# Build the application
 RUN npm run build
-RUN npm install -g serve
 
+# Expose the port your app runs on
+EXPOSE 5000
 
-EXPOSE 3000
-
-CMD ["serve", "-s", "-l", "3000", "build"]
+# Start the application
+CMD ["npm", "start"]
