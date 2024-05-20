@@ -16,6 +16,8 @@
 
 <div class="search-section">
     <input type="text" id="search" placeholder="Rechercher un cours" bind:value={searchQuery} on:keyup={handleSearch} />
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <!-- svelte-ignore a11y-no-static-element-interactions -->
     <div class="search-icon" on:click={handleSearch}>
         <FontAwesomeIcon icon={faSearch} />
     </div>
@@ -55,5 +57,14 @@
         justify-content: center;
         align-items: center;
         color : white;
+    }
+
+    @media (max-width: 768px) {
+        input {
+            width: 85%;
+        }
+        .search-icon {
+            width: 15%;
+        }
     }
 </style>

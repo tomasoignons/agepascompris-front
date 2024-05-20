@@ -55,4 +55,16 @@
       color: var(--color-1);
       font-weight: bold;
     }
+
+    @media (max-width: 768px) {
+      nav {
+        justify-content: space-between;
+        gap : 0px;
+        padding : 0px;
+      }
+
+      .logo{
+        font-size: 1.5em;
+      }
+    }
   </style>

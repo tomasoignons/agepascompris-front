@@ -10,21 +10,33 @@
     index = (index + 1) % images.length;
     nextIndex = (index + 1) % images.length;
   }, 5000);
+
+  let searchQuery = '';
+
+function handleSearch(event) {
+    if (event.type === 'keyup' && event.key !== 'Enter') {
+        return;
+    }
+
+    location.href = `/search?search=${encodeURIComponent(searchQuery)}`;
+}
 </script>
 
 <header>
   <div class="image-container">
+    <!-- svelte-ignore a11y-img-redundant-alt -->
     <img src="images/{images[nextIndex]}" alt="Next image" />
     {#each [images[index]] as image (image)}
+    <!-- svelte-ignore a11y-img-redundant-alt -->
     <img src="images/{image}" alt="Current image" class="fade-out" />
     {/each}
     <div class="text-container">
       <h1 class="title-header">Bienvenue sur <span>agepascompris</span></h1>
       <p>Vous cherchez quelque chose ?</p>
       <div class="input-container">
-        <input type="text" id="search" placeholder="Rechercher un cours" />
+        <input type="text" id="search" placeholder="Rechercher un cours" bind:value={searchQuery} on:keyup={handleSearch}/>
         <div class="search-icon">
-          <FontAwesomeIcon icon={faSearch} />
+          <FontAwesomeIcon icon={faSearch} on:click={handleSearch} />
         </div>
       </div>
     </div>
@@ -333,6 +345,32 @@
   .container-question h2{
     margin-top : 0;
     margin-bottom : 10px;
+  }
+
+  @media screen and (max-width: 800px) {
+    .input-container {
+      width: 80%;
+    }
+    .text-container {
+      font-size: 0.8em;
+    }
+
+    .logo-explication{
+      font-size: 3em;
+    }
+
+    .text-explication{
+      font-size: 1em;
+    }
+    .presentation-container{
+      flex-direction: column;
+      gap : 10px;
+      height: fit-content;
+    }
+    .presentation-container img{
+      width: 100%;
+      height: 100%;
+    }
   }
 
 </style>

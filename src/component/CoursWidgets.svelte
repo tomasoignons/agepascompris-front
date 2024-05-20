@@ -103,4 +103,10 @@
         text-wrap: nowrap;
     }
 
+    @media screen and (max-width: 800px) {
+        .course-container-widget {
+            width: 80%;
+        }
+    }
+
 </style>
