@@ -18,5 +18,15 @@
     "subjects": ["analyse", "limites de l'exponentielle", "exponentielle", "équations trigonométriques", "loi binomiale", "logarithme", "dénombrement", "probabilités"],
     "name" : "Exponentielle",
     "description" : "Apprendre à calculer les limites de l'exponentielle"
+    },
+    {
+    "year": 0,
+    "matiere" : "math",
+    "mainSubject": "probabilites",
+    "student": 1,
+    "week" : 2,
+    "subjects": ["probabilités", "combinatoire"],
+    "name" : "Probabilité",
+    "description" : "Apprendre les probabilités"
     }
 ]
