@@ -24,7 +24,7 @@
     "matiere" : "math",
     "mainSubject": "probabilites",
     "student": 1,
-    "week" : 2,
+    "week" : 3,
     "subjects": ["probabilités", "combinatoire"],
     "name" : "Probabilité",
     "description" : "Apprendre les probabilités"
